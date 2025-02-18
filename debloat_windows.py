@@ -69,6 +69,7 @@ def apply_registry_changes():
             (winreg.HKEY_CURRENT_USER, r"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "HideFileExt", winreg.REG_DWORD, 0),# Show file extensions in Explorer (useful for security and organization)
             (winreg.HKEY_CURRENT_USER, r"Control Panel\\Colors", "Hilight", winreg.REG_SZ, "0 0 0"), # Sets highlight color to black
             (winreg.HKEY_CURRENT_USER, r"Control Panel\\Colors", "HotTrackingColor", winreg.REG_SZ, "0 0 0"), # Sets the click-and-drag box color to black
+            (winreg.HKEY_CURRENT_USER, r"Control Panel\\Colors", "HilightText", winreg.REG_SZ, "255 255 255") # Sets the highlighted text is white
         ]
         for root_key, key_path, value_name, value_type, value in registry_modifications:
             try:
@@ -89,7 +90,7 @@ def apply_registry_changes():
 
 
 
-""" Run a script to remove Edge, and prevent reinstallation """
+""" Run a script to remove Edge, and prevent reinstallation """(winreg.HKEY_CURRENT_USER, r"Control Panel\\Colors", "HilightText", winreg.REG_SZ, "255 255 255")
 def run_edge_vanisher():
     log("Starting Edge Vanisher script execution...")
     try:
